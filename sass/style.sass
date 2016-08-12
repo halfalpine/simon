@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=VT323)
 @import url(https://fonts.googleapis.com/css?family=Economica:700|Open+Sans:700)
 
-* 
+*
   box-sizing: border-box
   font-size: 2em
   text-align: center
@@ -11,10 +11,10 @@
   // display: inline-block
   position: relative
   width: 100%
-  
+
 #filler
   padding-top: 100%
-  
+
 #tabletop
   position: absolute
   top: 0
@@ -24,7 +24,7 @@
   // background-image: url('http://wallpapercave.com/wp/CyT83yY.jpg')
   background-color: grey
 
-#console 
+#console
   border-radius: 100%
   position: absolute
   margin: auto
@@ -33,15 +33,15 @@
   left: 10%
   right: 10%
   background-color: black
-  
-.button-row 
+
+.button-row
   -webkit-column-count: 2
   -moz-column-count: 2
   column-count: 2
   margin: 5%
 
 
-.button 
+.button
   position: absolute
   width: 45%
   height: 45%
@@ -50,7 +50,7 @@
   &:focus
     outline: 0
 
-#controls 
+#controls
   border-radius: 50%
   z-index: 999
   width: 50%
@@ -71,7 +71,7 @@
   border-radius: 10%
   font-family: 'VT323', monospace
   font-size: 2.5em
-  
+
 #start-button
   display: block
   margin: 0 auto
@@ -91,10 +91,10 @@
   border: 2px solid black
   border-radius: 100%
   // background-color: grey
-  
+
 .strict-on
   background-color: red
-  
+
 #strict-button
   display: block
   margin: 0 auto
@@ -103,25 +103,25 @@
   background-color: yellow
   border: 3px solid black
   border-radius: 100%
-  
+
 #midrow-container label
   display: inline-block
   margin-top: 5%
   font-family: 'Economica', sans-serif
   font-size: 1.5em
-  
+
 /* Power switch */
-.switch 
+.switch
   position: relative
   display: inline-block
   width: 60px
   height: 34px
   // border: 1px solid black
 
-.switch input 
+.switch input
   display: none
 
-.slider 
+.slider
   position: absolute
   cursor: pointer
   top: 0
@@ -133,7 +133,7 @@
   -webkit-transition: .4s
   transition: .4s
 
-.slider:before 
+.slider:before
   position: absolute
   content: ""
   height: 26px
@@ -144,21 +144,21 @@
   -webkit-transition: .4s
   transition: .4s
 
-input:checked + .slider 
+input:checked + .slider
   background-color: #2196F3
 
-input:focus + .slider 
+input:focus + .slider
   box-shadow: 0 0 1px #2196F3
 
-input:checked + .slider:before 
+input:checked + .slider:before
   -webkit-transform: translateX(26px)
   -ms-transform: translateX(26px)
   transform: translateX(26px)
 
-.slider.round 
+.slider.round
   border-radius: 34px
 
-.slider.round:before 
+.slider.round:before
   border-radius: 50%
 
 /* Center controls */
@@ -198,7 +198,7 @@ input:checked + .slider:before
     margin: 0
 #bottomrow-container
   position: relative
-  #off  
+  #off
     position: absolute
     top: 50%
     transform: translate(0, -50%)
@@ -213,25 +213,25 @@ input:checked + .slider:before
     font-family: 'Economica', sans-serif
     font-size: 3.5vw
 /* Gameplay buttons */
-#green 
+#green
   border-top-left-radius: 100%
   background-color: green
   top: 5%
   left: 5%
- 
-#red 
+
+#red
   border-top-right-radius: 100%
   background-color: red
   top: 5%
   right: 5%
 
-#yellow 
+#yellow
   border-bottom-left-radius: 100%
   background-color: yellow
   bottom: 5%
   left: 5%
-  
-#blue 
+
+#blue
   border-bottom-right-radius: 100%
   background-color: blue
   bottom: 5%
@@ -239,4 +239,3 @@ input:checked + .slider:before
 
 .press
   opacity: 0.5
-  
