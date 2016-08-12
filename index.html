@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Simon 0.1 CSS-Box</title>
+    
+    
+    <link rel="stylesheet" href="css/reset.css">
+
+    
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <body>
+  <button id="test" type="button">TEST</button>
+  <div id="container">
+    <div id="filler">
+      <div id="tabletop">
+        <div id="console">&nbsp;
+          <button id="green" class="button" type="button"></button>
+          <button id="red" class="button" type="button">
+          </button>
+          <div id="controls">
+            <div id="toprow-container">
+              <p id="logo">Simon<sub id="trademark">&trade;</sub></p>
+              <!--logo-->
+            </div>
+            <!--toprow-controls-->
+            <div id="midrow-container">
+              <div id="count-container">
+                <div id="count-display">00
+                </div>
+                <!--count-display-->
+                <label for="count-display">COUNT</label>
+              </div>
+              <!--count-container-->
+              <div id="start-container">
+                <button id="start-button"> </button>
+                <label for="start-button">START</label>
+              </div>
+              <!--start-container-->
+              <div id="strict-container">
+                <div id="strict-display">
+                </div>
+                <!--strict-display-->
+                <button id="strict-button"> </button>
+                <label for="strict-button">STRICT</label>
+              </div>
+              <!--strict-container-->
+            </div>
+            <!--midrow-container-->
+            <div id="bottomrow-container">
+              <label for="power" class="switch"><span id="off">OFF</span>
+                 <input id="power" type="checkbox">
+               <div id="slider" class="slider round">
+                </div> <!--slider-->
+                <span id="on">ON</span></label>
+            </div>
+            <!--bottomrom-container-->
+          </div>
+          <!--controls-->
+          <button id="yellow" class="button" type="button">
+          </button>
+          <!--yellow-->
+          <button id="blue" class="button" type="button">
+          </button>
+          <!--blue-->
+        </div>
+        <!--console-->
+      </div>
+      <!--tabletop-->
+    </div>
+    <!--filler-->
+  </div>
+  <!--container-->
+  <audio id="green-sound" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" preload="auto"></audio>
+  <audio id="red-sound" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" preload="auto"></audio>
+  <audio id="yellow-sound" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" preload="auto"></audio>
+  <audio id="blue-sound" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" preload="auto"></audio>
+</body>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
