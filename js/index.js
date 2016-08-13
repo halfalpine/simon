@@ -119,6 +119,7 @@ $(".document").ready(function() {
       let greenSound = document.getElementById('green-sound');
       let newSound = greenSound.cloneNode();
       newSound.play();
+      newSound.remove();
       $('#green').addClass('press');
       setTimeout(() => {press.removeOpacity('#green')}, 200);
     },
@@ -127,6 +128,7 @@ $(".document").ready(function() {
       let redSound = document.getElementById('red-sound');
       let newSound = redSound.cloneNode();
       newSound.play();
+      newSound.remove();
       $('#red').addClass('press');
       setTimeout(() => {press.removeOpacity('#red')}, 200)
     },
@@ -135,6 +137,7 @@ $(".document").ready(function() {
       let yellowSound = document.getElementById('yellow-sound');
       let newSound = yellowSound.cloneNode();
       newSound.play();
+      newSound.remove();
       $('#yellow').addClass('press');
       setTimeout(() => {press.removeOpacity('#yellow')}, 200)
     },
@@ -143,6 +146,7 @@ $(".document").ready(function() {
       let blueSound = document.getElementById('blue-sound');
       let newSound = blueSound.cloneNode();
       newSound.play();
+      newSound.remove();
       $('#blue').addClass('press');
       setTimeout(() => {press.removeOpacity('#blue')}, 200)
     },
