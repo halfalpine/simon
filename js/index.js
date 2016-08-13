@@ -20,7 +20,7 @@ $(".document").ready(function() {
       data.turns++;
       console.log("compSeq", data.compSeq, "turns", data.turns);
       // Check for winner, call victory() and return true
-      simon.playSeq(data.compSeq);
+      data.compSeq.forEach(simon.pushButton);
     }
 
     function start() {
@@ -102,6 +102,14 @@ $(".document").ready(function() {
       }
       return arr;
     }()),
+
+    pushButton: function(value, index, array) {
+      console.log(value, index, array);
+      if (value === 0) press.green();
+      else if (value === 1) press.red();
+      else if (value === 2) press.yellow();
+      else press.blue();
+    },
 
     regGame: (function() {
       if (data.humanMoves > 20) {
