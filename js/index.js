@@ -19,7 +19,7 @@ $(".document").ready(function() {
       data.compSeq.push(data.sequence[data.turns]);
       data.turns++;
       console.log("compSeq", data.compSeq, "turns", data.turns);
-      // Check for winner, call victory() and return true
+      // Add function: check for winner, call victory() and return true
       simon.playSeq(data.compSeq);
     }
 
@@ -83,10 +83,18 @@ $(".document").ready(function() {
     },
 
     playSeq: function(arr) { // arr is data.compSeq
+      if (data.turns < 10) {
+        let sTime = data.ms[0];
+      } else if (data.turns > 9 && data.turns < 15) {
+        let sTime = data.ms[1];
+      } else {
+        let sTime = data.ms[2];
+      }
       let sTime = data.ms[0];
       $.each(arr, function(index, value) {
         // What happens inside the press object?
         console.log("value", value, 'index', index);
+        setTimeout(simon.pushButton(value), (index + 1) * sTime);
         // Light up button
         // Make sound
 
