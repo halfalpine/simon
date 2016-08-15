@@ -83,6 +83,7 @@ $(".document").ready(function() {
     },
 
     playSeq: function(arr) { // arr is data.compSeq
+      // Adjust playback speed, depending on number of turns
       if (data.turns < 10) {
         let sTime = data.ms[0];
       } else if (data.turns > 9 && data.turns < 15) {
@@ -94,7 +95,10 @@ $(".document").ready(function() {
       $.each(arr, function(index, value) {
         // What happens inside the press object?
         console.log("value", value, 'index', index);
-        setTimeout(simon.pushButton(value), (index + 1) * sTime);
+        setTimeout(function seqTimer() {
+          simon.pushButton(value);
+        }, (index + 1) * sTime);
+        // setTimeout(simon.pushButton(value), (index + 1) * sTime);
         // Light up button
         // Make sound
 
