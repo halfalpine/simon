@@ -20,7 +20,7 @@ $(".document").ready(function() {
       data.turns++;
       console.log("compSeq", data.compSeq, "turns", data.turns);
       // Check for winner, call victory() and return true
-      data.compSeq.forEach(simon.pushButton);
+      simon.playSeq(data.compSeq);
     }
 
     function start() {
@@ -83,9 +83,10 @@ $(".document").ready(function() {
     },
 
     playSeq: function(arr) { // arr is data.compSeq
-      $.each(arr, function(value, index) {
+      let sTime = data.ms[0];
+      $.each(arr, function(index, value) {
         // What happens inside the press object?
-        press.red();
+        console.log("value", value, 'index', index);
         // Light up button
         // Make sound
 
