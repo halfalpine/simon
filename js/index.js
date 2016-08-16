@@ -96,14 +96,21 @@ $(".document").ready(function() {
 
   // The 'simon' object contains helper functions
   let simon = {
+
     hasWinner: function(humArr, compArr){
       return humArr.every((value, index) => compArr[index] === humArr[index]);
     },
+
     translateToColor: function(num) {
       return data.colors[num];
     },
-    playSeq: function(arr) { // arr is data.compSeq
 
+    playSeq: function(arr) { // arr is data.compSeq
+      let sTime = 1000;
+      events.deactivateEvents();
+      $.each(arr, function(index, value){
+        
+      });
     },
 
     sequence: function() {
