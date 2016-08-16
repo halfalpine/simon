@@ -5,7 +5,7 @@ $(".document").ready(function() {
     compSeq: [],
     humanSeq: [],
     ms: [800, 400, 200],
-    colors: [green, red, yellow, blue],
+    colors: ['green', 'red', 'yellow', 'blue'],
     turns: 0
   };
 
@@ -21,7 +21,7 @@ $(".document").ready(function() {
       simon.playSeq(data.compSeq);
     },
     start: function() {
-      data.sequence = simon.sequence;
+      data.sequence = simon.sequence();
       controller.play();
     },
     strict: function() {
@@ -40,7 +40,6 @@ $(".document").ready(function() {
       $('#blue').on('mousedown', press.blue);
     },
     deactivateEvents: function() {
-      $('#test').off('click', controller.init);
       $('#start-button').off('click', controller.start);
       $('#strict-button').off('click', controller.strict);
       $('#green').off('mousedown', press.green);
@@ -49,7 +48,7 @@ $(".document").ready(function() {
       $('#blue').off('mousedown', press.blue);
     },
     togglePower: function() {
-      this.checked ? activateEvents() : deactivateEvents();
+      this.checked ? events.activateEvents() : events.deactivateEvents();
     }
   };
 
@@ -104,11 +103,10 @@ $(".document").ready(function() {
       return data.colors[num];
     },
     playSeq: function(arr) { // arr is data.compSeq
-      arr.each(function(value, index) {
-      }
+
     },
 
-    sequence: (function() {
+    sequence: function() {
       //Return an array of 20 numbers between 0 and 3
       let arr = new Array(20)
       for (let i = 0; i < arr.length; i++) {
@@ -116,7 +114,7 @@ $(".document").ready(function() {
         arr[i] = rand;
       }
       return arr;
-    }()),
+    },
 
     regGame: (function() {
       if (data.humanMoves > 20) {
@@ -128,11 +126,9 @@ $(".document").ready(function() {
     }())
   }
 
-
-
   let view = {
     init: function() {
-      $('#power').change(events);
+      $('#power').change(events.togglePower);
     }
   };
 
