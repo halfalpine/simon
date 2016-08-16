@@ -4,7 +4,7 @@ $(".document").ready(function() {
     sequence: null,
     compSeq: [],
     humanSeq: [],
-    ms: [1200, 1000, 800],
+    ms: [800, 400, 200],
     colors: [green, red, yellow, blue],
     turns: 0
   };
@@ -29,7 +29,6 @@ $(".document").ready(function() {
     }
   };
 
-  // This function should togggle all event listeners on and off
   let events = {
      activateEvents: function() {
       // $('#test').on('click', controller.init);
@@ -54,40 +53,6 @@ $(".document").ready(function() {
     }
   };
 
-  // The 'simon' object contains helper functions
-  let simon = {
-    hasWinner: function(humArr, compArr){
-      return humArr.every((value, index) => compArr[index] === humArr[index]);
-    },
-    translateToColor: function(num) {
-      return data.colors[num];
-    },
-    playSeq: function(arr) { // arr is data.compSeq
-      arr.each(function(value, index) {
-      }
-    },
-
-    sequence: (function() {
-      //Return an array of 20 numbers between 0 and 3
-      let arr = new Array(20)
-      for (let i = 0; i < arr.length; i++) {
-        let rand = Math.floor(Math.random() * 4);
-        arr[i] = rand;
-      }
-      return arr;
-    }()),
-
-    regGame: (function() {
-      if (data.humanMoves > 20) {
-        simon.victory;
-        return;
-      } else {
-
-      }
-    }())
-  }
-
-  //A collection of buttons
   let press = {
     green: function() {
       let that = this;
@@ -129,6 +94,41 @@ $(".document").ready(function() {
       $(x).removeClass('press').bind(press.green);
     }
   };
+
+  // The 'simon' object contains helper functions
+  let simon = {
+    hasWinner: function(humArr, compArr){
+      return humArr.every((value, index) => compArr[index] === humArr[index]);
+    },
+    translateToColor: function(num) {
+      return data.colors[num];
+    },
+    playSeq: function(arr) { // arr is data.compSeq
+      arr.each(function(value, index) {
+      }
+    },
+
+    sequence: (function() {
+      //Return an array of 20 numbers between 0 and 3
+      let arr = new Array(20)
+      for (let i = 0; i < arr.length; i++) {
+        let rand = Math.floor(Math.random() * 4);
+        arr[i] = rand;
+      }
+      return arr;
+    }()),
+
+    regGame: (function() {
+      if (data.humanMoves > 20) {
+        simon.victory;
+        return;
+      } else {
+
+      }
+    }())
+  }
+
+
 
   let view = {
     init: function() {
