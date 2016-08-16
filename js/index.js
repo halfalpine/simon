@@ -17,7 +17,7 @@ $(".document").ready(function() {
       data.compSeq.push(data.sequence[data.turns]);
       data.turns++;
       console.log("compSeq", data.compSeq, "turns", data.turns);
-      // Check for winner, call victory() and return true
+      // Add function: Check for winner, call victory() and return true
       simon.playSeq(data.compSeq);
     },
     start: function() {
@@ -40,12 +40,12 @@ $(".document").ready(function() {
       $('#blue').on('mousedown', press.blue);
     },
     deactivateEvents: function() {
-      $('#start-button').off('click', controller.start);
-      $('#strict-button').off('click', controller.strict);
-      $('#green').off('mousedown', press.green);
-      $('#red').off('mousedown', press.red);
-      $('#yellow').off('mousedown', press.yellow);
-      $('#blue').off('mousedown', press.blue);
+      $('#start-button').off('click');
+      $('#strict-button').off('click');
+      $('#green').off('mousedown');
+      $('#red').off('mousedown');
+      $('#yellow').off('mousedown');
+      $('#blue').off('mousedown');
     },
     togglePower: function() {
       this.checked ? events.activateEvents() : events.deactivateEvents();
