@@ -106,11 +106,30 @@ $(".document").ready(function() {
     },
 
     playSeq: function(arr) { // arr is data.compSeq
-      let sTime = 1000;
+      // Adjust playback speed, depending on number of turns
+      if (data.turns < 10) {
+        let sTime = data.ms[0];
+      } else if (data.turns > 9 && data.turns < 15) {
+        let sTime = data.ms[1];
+      } else {
+        let sTime = data.ms[2];
+      }
+      let sTime = data.ms[0];
       events.deactivateEvents();
       $.each(arr, function(index, value){
-        
+        console.log("value", value, 'index', index);
+        setTimeout(function seqTimer() {
+          simon.pushButton(value);
+        }, (index + 1) * sTime);
       });
+    },
+
+    pushButton: function(value, index, array) {
+      console.log(value, index, array);
+      if (value === 0) press.green();
+      else if (value === 1) press.red();
+      else if (value === 2) press.yellow();
+      else press.blue();
     },
 
     sequence: function() {
