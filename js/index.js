@@ -115,12 +115,17 @@ $(".document").ready(function() {
   // The 'simon' object contains helper functions
   let simon = {
 
+    getColorCode: function(button){
+      console.log(button);
+      console.log($(button).data().button);
+    },
+
     hasWinner: function(humArr, compArr){
       return humArr.every((value, index) => compArr[index] === humArr[index]);
     },
 
     humanResponse: function(){
-      console.log(this);
+      simon.getColorCode(this);
     },
 
     playSeq: function(arr) { // arr is data.compSeq
@@ -144,7 +149,6 @@ $(".document").ready(function() {
         }, (index + 1) * sTime);
       });
     },
-
 
     pushButton: function(value, index, array) {
       console.log(value, index, array);
