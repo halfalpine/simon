@@ -112,14 +112,19 @@ $(".document").ready(function() {
         let sTime = data.ms[2];
       }
       let sTime = data.ms[0];
-      events.deactivateEvents();
+      console.log($('.button'));
+      $('.button').toggleClass('lockout');
       $.each(arr, function(index, value){
         console.log("value", value, 'index', index);
         setTimeout(function seqTimer() {
           simon.pushButton(value);
         }, (index + 1) * sTime);
+        if (index === arr.length - 1) {
+          setTimeout(function() {
+            $('.button').toggleClass('lockout');
+          }, (index + 1) * sTime);
+        }
       });
-      // events.activateEvents();
     },
 
     pushButton: function(value) {
