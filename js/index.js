@@ -68,7 +68,7 @@ $(".document").ready(function() {
     togglePower: function() {
       this.checked ? activateEvents() : deactivateEvents();
     }
-    
+
   };
 
   // The 'simon' object contains helper functions
@@ -76,10 +76,6 @@ $(".document").ready(function() {
 
     hasWinner: function(humArr, compArr){
       return humArr.every((value, index) => compArr[index] === humArr[index]);
-    },
-
-    translateToColor: function(num) {
-      return data.colors[num];
     },
 
     playSeq: function(arr) { // arr is data.compSeq
@@ -104,21 +100,12 @@ $(".document").ready(function() {
       });
     },
 
-    sequence: (function() {
-      //Return an array of 20 numbers between 0 and 3
-      let arr = new Array(20)
-      for (let i = 0; i < arr.length; i++) {
-        let rand = Math.floor(Math.random() * 4);
-        arr[i] = rand;
-      }
-      return arr;
-    }()),
 
     pushButton: function(value, index, array) {
       console.log(value, index, array);
       if (value === 0) press.green();
       else if (value === 1) press.red();
-      else if (value === 2) press.yellow();
+      else if (value === 2) press.yellow()
       else press.blue();
     },
 
@@ -129,7 +116,22 @@ $(".document").ready(function() {
       } else {
 
       }
-    }())
+    }()),
+
+    sequence: (function() {
+      //Return an array of 20 numbers between 0 and 3
+      let arr = new Array(20)
+      for (let i = 0; i < arr.length; i++) {
+        let rand = Math.floor(Math.random() * 4);
+        arr[i] = rand;
+      }
+      return arr;
+    }()),
+
+    translateToColor: function(num) {
+      return data.colors[num];
+    }
+
   }
 
   //A collection of buttons
