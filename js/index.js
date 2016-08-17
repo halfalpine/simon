@@ -16,8 +16,8 @@ $(".document").ready(function() {
     },
 
     play: function(){
-      data.compSeq.push(data.sequence[data.turns]);
-      console.log("compSeq", data.compSeq, "turns", data.turns);
+      console.log("compSeq", data.compSeq);
+      console.log("humanSeq", data.humanSeq);
       // Add function: check for winner, call victory() and return true
       simon.playSeq(data.compSeq);
       events.activateHumanEvents();
@@ -25,6 +25,7 @@ $(".document").ready(function() {
 
     start: function() {
       data.sequence = simon.sequence;
+      data.compSeq.push(data.sequence[0]);
       controller.play();
     },
 
@@ -129,17 +130,17 @@ $(".document").ready(function() {
         return element === data.compSeq[index];
       })) {
         console.log('match');
-        if (data.humanSeq.length === data.compSeq.length) {
+        if (data.humanSeq.length === data.turns) {
           console.log('nice!');
           data.turns++;
           data.humanSeq = [];
           events.deactivateHumanEvents();
           controller.play();
-        } else {
-          data.humanSeq = [];
-          events.deactivateHumanEvents();
-          controller.play();
         }
+        } else {
+        data.humanSeq = [];
+        events.deactivateHumanEvents();
+        controller.play();
       }
 
       // Reset humanSeq
