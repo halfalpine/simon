@@ -71,6 +71,48 @@ $(".document").ready(function() {
 
   };
 
+  let press = {
+    green: function() {
+      let greenSound = document.getElementById('green-sound');
+      let newSound = greenSound.cloneNode();
+      newSound.play();
+      newSound.remove();
+      $('#green').addClass('press');
+      setTimeout(() => {press.removeOpacity('#green')}, 200);
+    },
+
+    red: function() {
+      let redSound = document.getElementById('red-sound');
+      let newSound = redSound.cloneNode();
+      newSound.play();
+      newSound.remove();
+      $('#red').addClass('press');
+      setTimeout(() => {press.removeOpacity('#red')}, 200)
+    },
+
+    yellow: function() {
+      let yellowSound = document.getElementById('yellow-sound');
+      let newSound = yellowSound.cloneNode();
+      newSound.play();
+      newSound.remove();
+      $('#yellow').addClass('press');
+      setTimeout(() => {press.removeOpacity('#yellow')}, 200)
+    },
+
+    blue: function() {
+      let blueSound = document.getElementById('blue-sound');
+      let newSound = blueSound.cloneNode();
+      newSound.play();
+      newSound.remove();
+      $('#blue').addClass('press');
+      setTimeout(() => {press.removeOpacity('#blue')}, 200)
+    },
+
+    removeOpacity: function(x) {
+      $(x).removeClass('press').bind(press.green);
+    }
+  };
+
   // The 'simon' object contains helper functions
   let simon = {
 
@@ -133,49 +175,6 @@ $(".document").ready(function() {
     }
 
   }
-
-  //A collection of buttons
-  let press = {
-    green: function() {
-      let greenSound = document.getElementById('green-sound');
-      let newSound = greenSound.cloneNode();
-      newSound.play();
-      newSound.remove();
-      $('#green').addClass('press');
-      setTimeout(() => {press.removeOpacity('#green')}, 200);
-    },
-
-    red: function() {
-      let redSound = document.getElementById('red-sound');
-      let newSound = redSound.cloneNode();
-      newSound.play();
-      newSound.remove();
-      $('#red').addClass('press');
-      setTimeout(() => {press.removeOpacity('#red')}, 200)
-    },
-
-    yellow: function() {
-      let yellowSound = document.getElementById('yellow-sound');
-      let newSound = yellowSound.cloneNode();
-      newSound.play();
-      newSound.remove();
-      $('#yellow').addClass('press');
-      setTimeout(() => {press.removeOpacity('#yellow')}, 200)
-    },
-
-    blue: function() {
-      let blueSound = document.getElementById('blue-sound');
-      let newSound = blueSound.cloneNode();
-      newSound.play();
-      newSound.remove();
-      $('#blue').addClass('press');
-      setTimeout(() => {press.removeOpacity('#blue')}, 200)
-    },
-
-    removeOpacity: function(x) {
-      $(x).removeClass('press').bind(press.green);
-    }
-  };
 
   let view = {
     init: function() {
