@@ -9,38 +9,29 @@ $(".document").ready(function() {
     turns: 0
   };
 
-  let controller = (function(){
+  let controller = {
 
-    function init() {
+    init: function() {
       view.init();
-    }
+    },
 
-    function play() {
+    play: function(){
       data.compSeq.push(data.sequence[data.turns]);
       data.turns++;
       console.log("compSeq", data.compSeq, "turns", data.turns);
       // Add function: check for winner, call victory() and return true
       simon.playSeq(data.compSeq);
-    }
+    },
 
-    function start() {
+    start: function() {
       data.sequence = simon.sequence;
       controller.play();
-    }
+    },
 
-    function strict() {
+    strict: function() {
       $('#strict-display').toggleClass('strict-on');
     }
-
-    publicAPI = {
-      init: init,
-      play: play,
-      start: start,
-      strict: strict
-    }
-
-    return publicAPI;
-  }());
+  };
 
   // This function should togggle all event listeners on and off
   let events = {
