@@ -55,42 +55,35 @@ $(".document").ready(function() {
 
   let press = {
     green: function() {
-      console.log('in green');
       let greenSound = document.getElementById('green-sound');
       let newSound = greenSound.cloneNode();
       newSound.play();
-      $(greenSound).addClass('press');
-      setTimeout(() => {press.removeOpacity(greenSound)}, 200);
+      $('#green').addClass('press');
+      setTimeout(() => {press.removeOpacity($('#green'))}, 200);
     },
 
     red: function() {
-      console.log('in red');
-
       let redSound = document.getElementById('red-sound');
       let newSound = redSound.cloneNode();
       newSound.play();
-      $(redSound).addClass('press');
-      setTimeout(() => {press.removeOpacity(redSound)}, 200)
+      $('#red').addClass('press');
+      setTimeout(() => {press.removeOpacity($('#red'))}, 200)
     },
 
     yellow: function() {
-      console.log('in yellow');
-
       let yellowSound = document.getElementById('yellow-sound');
       let newSound = yellowSound.cloneNode();
       newSound.play();
-      $(yellowSound).addClass('press');
-      setTimeout(() => {press.removeOpacity(yellowSound)}, 200)
+      $('#yellow').addClass('press');
+      setTimeout(() => {press.removeOpacity($('#yellow'))}, 200)
     },
 
     blue: function() {
-      console.log('in blue');
-
       let blueSound = document.getElementById('blue-sound');
       let newSound = blueSound.cloneNode();
       newSound.play();
-      $(blueSound).addClass('press');
-      setTimeout(() => {press.removeOpacity(blueSound)}, 200)
+      $('#blue').addClass('press');
+      setTimeout(() => {press.removeOpacity($('#blue'))}, 200)
     },
 
     removeOpacity: function(x) {
