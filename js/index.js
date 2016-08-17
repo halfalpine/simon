@@ -43,8 +43,9 @@ $(".document").ready(function() {
   }());
 
   // This function should togggle all event listeners on and off
-  let events = (function() {
-    var activateEvents = function() {
+  let events = {
+
+    activateEvents: function() {
       // $('#test').on('click', controller.init);
       $('#start-button').on('mousedown', controller.start);
       $('#strict-button').on('click', controller.strict);
@@ -52,9 +53,9 @@ $(".document").ready(function() {
       $('#red').on('mousedown', press.red);
       $('#yellow').on('mousedown', press.yellow);
       $('#blue').on('mousedown', press.blue);
-    };
+    },
 
-    var deactivateEvents = function() {
+    deactivateEvents: function() {
       $('#test').off('click', controller.init);
       $('#start-button').off('click', controller.start);
       $('#strict-button').off('click', controller.strict);
@@ -62,14 +63,13 @@ $(".document").ready(function() {
       $('#red').off('mousedown', press.red);
       $('#yellow').off('mousedown', press.yellow);
       $('#blue').off('mousedown', press.blue);
-    };
+    },
 
-    let togglePower = function() {
+    togglePower: function() {
       this.checked ? activateEvents() : deactivateEvents();
-    };
-
-    return togglePower;
-  }());
+    }
+    
+  };
 
   // The 'simon' object contains helper functions
   let simon = {
