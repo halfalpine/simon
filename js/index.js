@@ -66,7 +66,7 @@ $(".document").ready(function() {
     },
 
     togglePower: function() {
-      this.checked ? activateEvents() : deactivateEvents();
+      this.checked ? events.activateEvents() : events.deactivateEvents();
     }
 
   };
@@ -178,7 +178,7 @@ $(".document").ready(function() {
 
   let view = {
     init: function() {
-      $('#power').change(events);
+      $('#power').change(events.togglePower);
     }
   };
 
