@@ -57,11 +57,11 @@ $(".document").ready(function() {
     },
 
     activateHumanEvents: function() {
-      $('.button').on('mousedown', press.humanResponse);
+      $('.button').on('mousedown', simon.humanResponse);
     },
 
     deactivateHumanEvents: function() {
-      $('.button').off('mousedown', press.humanResponse);
+      $('.button').off('mousedown', simon.humanResponse);
     },
 
     togglePower: function() {
@@ -110,11 +110,6 @@ $(".document").ready(function() {
     removeOpacity: function(x) {
       $(x).removeClass('press').bind(press.green);
     },
-
-    humanResponse: function(){
-      console.log("events.human: this", this);
-
-    }
   };
 
   // The 'simon' object contains helper functions
@@ -122,6 +117,10 @@ $(".document").ready(function() {
 
     hasWinner: function(humArr, compArr){
       return humArr.every((value, index) => compArr[index] === humArr[index]);
+    },
+
+    humanResponse: function(){
+      console.log(this);
     },
 
     playSeq: function(arr) { // arr is data.compSeq
