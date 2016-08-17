@@ -21,6 +21,7 @@ $(".document").ready(function() {
       console.log("compSeq", data.compSeq, "turns", data.turns);
       // Add function: check for winner, call victory() and return true
       simon.playSeq(data.compSeq);
+      events.activateHumanEvents();
     },
 
     start: function() {
@@ -37,7 +38,6 @@ $(".document").ready(function() {
   let events = {
 
     activateEvents: function() {
-      // $('#test').on('click', controller.init);
       $('#start-button').on('mousedown', controller.start);
       $('#strict-button').on('click', controller.strict);
       $('#green').on('mousedown', press.green);
@@ -57,15 +57,11 @@ $(".document").ready(function() {
     },
 
     activateHumanEvents: function() {
-      $('.button').on('mousedown', press.human);
-
+      $('.button').on('mousedown', press.humanResponse);
     },
 
     deactivateHumanEvents: function() {
-      $('#green').on('mousedown', press.green);
-      $('#red').on('mousedown', press.red);
-      $('#yellow').on('mousedown', press.yellow);
-      $('#blue').on('mousedown', press.blue);
+      $('.button').off('mousedown', press.humanResponse);
     },
 
     togglePower: function() {
@@ -113,6 +109,11 @@ $(".document").ready(function() {
 
     removeOpacity: function(x) {
       $(x).removeClass('press').bind(press.green);
+    },
+
+    humanResponse: function(){
+      console.log("events.human: this", this);
+
     }
   };
 
