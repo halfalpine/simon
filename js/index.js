@@ -92,10 +92,14 @@ $(".document").ready(function() {
         let sTime = data.ms[2];
       }
       let sTime = data.ms[0];
+      $('.button').toggleClass('lockout');
       $.each(arr, function(index, value) {
         console.log("value", value, 'index', index);
         setTimeout(function seqTimer() {
           simon.pushButton(value);
+          if (index + 1 === arr.length) {
+            $('.button').toggleClass('lockout');
+          }
         }, (index + 1) * sTime);
       });
     },
