@@ -6,7 +6,7 @@ $(".document").ready(function() {
     humanSeq: [],
     ms: [1200, 1000, 800],
     colors: [green, red, yellow, blue],
-    turns: 0
+    turns: 1
   };
 
   let controller = {
@@ -17,7 +17,6 @@ $(".document").ready(function() {
 
     play: function(){
       data.compSeq.push(data.sequence[data.turns]);
-      data.turns++;
       console.log("compSeq", data.compSeq, "turns", data.turns);
       // Add function: check for winner, call victory() and return true
       simon.playSeq(data.compSeq);
@@ -125,7 +124,25 @@ $(".document").ready(function() {
 
     humanResponse: function(){
       let x = simon.getColorCode(this);
-      console.log(x);
+      data.humanSeq.push(x);
+      if (data.humanSeq.every(function isMatching(element, index) {
+        return element === data.compSeq[index];
+      })) {
+        console.log('match');
+        if (data.humanSeq.length === data.compSeq.length) {
+          console.log('nice!');
+          data.turns++;
+          data.humanSeq = [];
+          events.deactivateHumanEvents();
+          controller.play();
+        } else {
+          data.humanSeq = [];
+          events.deactivateHumanEvents();
+          controller.play();
+        }
+      }
+
+      // Reset humanSeq
     },
 
     playSeq: function(arr) { // arr is data.compSeq
