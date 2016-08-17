@@ -65,6 +65,18 @@ $(".document").ready(function() {
       $('#blue').off('mousedown', press.blue);
     },
 
+    activateHumanEvents: function() {
+      $('.button').on('mousedown', press.human);
+
+    },
+
+    deactivateHumanEvents: function() {
+      $('#green').on('mousedown', press.green);
+      $('#red').on('mousedown', press.red);
+      $('#yellow').on('mousedown', press.yellow);
+      $('#blue').on('mousedown', press.blue);
+    },
+
     togglePower: function() {
       this.checked ? events.activateEvents() : events.deactivateEvents();
     }
