@@ -16,6 +16,7 @@ $(".document").ready(function() {
     play: function() {
       data.compSeq.push(data.sequence[data.turns]);
       data.turns++;
+      console.log('turns', data.turns);
       console.log("compSeq", data.compSeq, "turns", data.turns);
       // Add function: Check for winner, call victory() and return true
       simon.playSeq(data.compSeq);
@@ -54,39 +55,42 @@ $(".document").ready(function() {
 
   let press = {
     green: function() {
-      let that = this;
+      console.log('in green');
       let greenSound = document.getElementById('green-sound');
       let newSound = greenSound.cloneNode();
       newSound.play();
-      $(this).addClass('press');
-      setTimeout(() => {press.removeOpacity(that)}, 200);
+      $(greenSound).addClass('press');
+      setTimeout(() => {press.removeOpacity(greenSound)}, 200);
     },
 
     red: function() {
-      let that = this;
+      console.log('in red');
+
       let redSound = document.getElementById('red-sound');
       let newSound = redSound.cloneNode();
       newSound.play();
-      $(this).addClass('press');
-      setTimeout(() => {press.removeOpacity(that)}, 200)
+      $(redSound).addClass('press');
+      setTimeout(() => {press.removeOpacity(redSound)}, 200)
     },
 
     yellow: function() {
-      let that = this;
+      console.log('in yellow');
+
       let yellowSound = document.getElementById('yellow-sound');
       let newSound = yellowSound.cloneNode();
       newSound.play();
-      $(this).addClass('press');
-      setTimeout(() => {press.removeOpacity(that)}, 200)
+      $(yellowSound).addClass('press');
+      setTimeout(() => {press.removeOpacity(yellowSound)}, 200)
     },
 
     blue: function() {
-      let that = this;
+      console.log('in blue');
+
       let blueSound = document.getElementById('blue-sound');
       let newSound = blueSound.cloneNode();
       newSound.play();
-      $(this).addClass('press');
-      setTimeout(() => {press.removeOpacity(that)}, 200)
+      $(blueSound).addClass('press');
+      setTimeout(() => {press.removeOpacity(blueSound)}, 200)
     },
 
     removeOpacity: function(x) {
@@ -122,10 +126,10 @@ $(".document").ready(function() {
           simon.pushButton(value);
         }, (index + 1) * sTime);
       });
+      // events.activateEvents();
     },
 
-    pushButton: function(value, index, array) {
-      console.log(value, index, array);
+    pushButton: function(value) {
       if (value === 0) press.green();
       else if (value === 1) press.red();
       else if (value === 2) press.yellow();
