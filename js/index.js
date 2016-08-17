@@ -116,8 +116,7 @@ $(".document").ready(function() {
   let simon = {
 
     getColorCode: function(button){
-      console.log(button);
-      console.log($(button).data().button);
+      return $(button).data().button;
     },
 
     hasWinner: function(humArr, compArr){
@@ -125,7 +124,8 @@ $(".document").ready(function() {
     },
 
     humanResponse: function(){
-      simon.getColorCode(this);
+      let x = simon.getColorCode(this);
+      console.log(x);
     },
 
     playSeq: function(arr) { // arr is data.compSeq
@@ -140,7 +140,6 @@ $(".document").ready(function() {
       let sTime = data.ms[0];
       $('.button').toggleClass('lockout');
       $.each(arr, function(index, value) {
-        console.log("value", value, 'index', index);
         setTimeout(function seqTimer() {
           simon.pushButton(value);
           if (index + 1 === arr.length) {
@@ -151,7 +150,6 @@ $(".document").ready(function() {
     },
 
     pushButton: function(value, index, array) {
-      console.log(value, index, array);
       if (value === 0) press.green();
       else if (value === 1) press.red();
       else if (value === 2) press.yellow()
