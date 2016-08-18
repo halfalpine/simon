@@ -131,16 +131,14 @@ $(".document").ready(function() {
     humanResponse: function(){
       let x = simon.getColorCode(this);
       data.humanSeq.push(x);
-      console.log("humanResponse", "compSeq", data.compSeq);
-      console.log("humanResponse", "humanSeq", data.humanSeq);
-      // If both arrays are equal...
       if (data.humanSeq.every((el, i) => el === data.compSeq[i])) {
-        console.log('match');
         if (data.compSeq.every((el, i) => el === data.humanSeq[i])) {
-          console.log('nice!');
+          data.turns++;
+          data.compSeq.push(data.sequence[data.turns]);
+          data.humanSeq = [];
+          simon.turn(data.compSeq);
         }
       } else {
-        console.log('fail!');
         data.humanSeq = [];
         simon.turn(data.compSeq);
       }
