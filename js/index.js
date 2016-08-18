@@ -135,6 +135,11 @@ $(".document").ready(function() {
       console.log("humanResponse", "compSeq", data.compSeq);
       console.log("humanResponse", "humanSeq", data.humanSeq);
       // If both arrays are equal...
+      if (data.humanSeq.every(function(el, i) {
+        return el === data.compSeq[i];
+      })) {
+        console.log('match');
+      }
       /*
       if (data.humanSeq.every((el, i) => {el === data.compSeq[i]})) {
         console.log('match');
