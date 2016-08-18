@@ -6,7 +6,7 @@ $(".document").ready(function() {
     humanSeq: [],
     ms: [1200, 1000, 800],
     colors: [green, red, yellow, blue],
-    turns: 1
+    turns: 0
   };
 
   let controller = {
@@ -57,10 +57,12 @@ $(".document").ready(function() {
 
     activateHumanEvents: function() {
       $('.button').on('mousedown', simon.humanResponse);
+      $('.button').toggleClass('lockout');
     },
 
     deactivateHumanEvents: function() {
       $('.button').off('mousedown', simon.humanResponse);
+      $('.button').toggleClass('lockout');
     },
 
     togglePower: function() {
@@ -159,19 +161,12 @@ $(".document").ready(function() {
 
     playSeq: function(arr) { // arr is data.compSeq
       // Push new number to compSeq
-      
+      data.compSeq.push(data.sequence[turns]);
       // Adjust playback speed, depending on number of turns
-      let sTime = data.ms[0];
+
+      // Turn off human input during playback
       events.deactivateHumanEvents();
-      $('.button').toggleClass('lockout');
-      $.each(arr, function(index, value) {
-        setTimeout(function seqTimer() {
-          simon.pushButton(value);
-          if (index + 1 === arr.length) {
-            $('.button').toggleClass('lockout');
-          }
-        }, (index + 1) * sTime);
-      });
+
     },
 
     pushButton: function(value, index, array) {
