@@ -137,13 +137,15 @@ $(".document").ready(function() {
         return el === data.compSeq[i];
       })) {
         console.log('match');
+        /*
         if (data.humanSeq.length === data.compSeq.length) {
           console.log('nice!');
           data.turns++;
           console.log('turns', data.turns)
           data.humanSeq = [];
           return controller.play();
-        }
+
+        }*/
         /*
         if (data.humanSeq.length === data.turns) {
           console.log('nice!');
@@ -200,6 +202,8 @@ $(".document").ready(function() {
           clearInterval(timerID);
         }
       }, 1000);
+      events.activateHumanEvents();
+      simon.humanResponse();
     }
   }
 
