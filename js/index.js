@@ -14,18 +14,18 @@ $(".document").ready(function() {
     init: function() {
       view.init();
     },
-
+/*
     play: function(){
       // Add function: check for winner, call victory() and return true
       simon.playSeq(data.compSeq);
       events.activateHumanEvents();
     },
+*/
 
     start: function() {
       data.sequence = simon.makeSequence;
-      console.log(data.sequence);
-      data.compSeq.push(data.sequence[0]);
-      controller.play();
+      //data.compSeq.push(data.sequence[0]);
+      simon.play();
     },
 
     strict: function() {
@@ -158,14 +158,9 @@ $(".document").ready(function() {
     },
 
     playSeq: function(arr) { // arr is data.compSeq
+      // Push new number to compSeq
+      
       // Adjust playback speed, depending on number of turns
-      if (data.turns < 10) {
-        let sTime = data.ms[0];
-      } else if (data.turns > 9 && data.turns < 15) {
-        let sTime = data.ms[1];
-      } else {
-        let sTime = data.ms[2];
-      }
       let sTime = data.ms[0];
       events.deactivateHumanEvents();
       $('.button').toggleClass('lockout');
