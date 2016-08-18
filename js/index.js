@@ -60,11 +60,13 @@ $(".document").ready(function() {
     activateHumanEvents: function() {
       $('.button').on('mousedown', simon.humanResponse);
       $('.button').toggleClass('lockout');
+      console.log('activated');
     },
 
     deactivateHumanEvents: function() {
       $('.button').off('mousedown', simon.humanResponse);
       $('.button').toggleClass('lockout');
+      console.log('deactivated');
     },
 
     togglePower: function() {
@@ -129,8 +131,8 @@ $(".document").ready(function() {
     humanResponse: function(){
       let x = simon.getColorCode(this);
       data.humanSeq.push(x);
-      console.log("humanResponse", "compSeq", data.compSeq);
-      console.log("humanResponse", "humanSeq", data.humanSeq);
+      //console.log("humanResponse", "compSeq", data.compSeq);
+      //console.log("humanResponse", "humanSeq", data.humanSeq);
       // If both arrays are equal...
       if (data.humanSeq.every((el, i) => {el === data.compSeq[i]})) {
         console.log('match');
@@ -173,17 +175,17 @@ $(".document").ready(function() {
         // Playback logic
         simon.pushButton(data.compSeq[index]);
         if (index === data.turns + 1) {
+          events.activateHumanEvents();
           clearInterval(timerID);
         }
       }, 1000);
-      events.activateHumanEvents();
-      simon.humanResponse();
     }
   }
 
   let view = {
     init: function() {
       $('#power').change(events.togglePower);
+      //events.deactivateHumanEvents();
     }
   };
 
