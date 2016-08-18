@@ -188,17 +188,18 @@ $(".document").ready(function() {
 
     turn: function(arr) { // arr is data.compSeq
       let index = 0;
-      data.compSeq.push(data.sequence[turns]); // Push new number to compSeq
+      data.compSeq.push(data.sequence[data.turns]); // Push new number to compSeq
       // Adjust playback speed, depending on number of turns
       events.deactivateHumanEvents(); // Turn off human input during playback
       timerID = setInterval(function(){
-        played++;
+        index++;
+        console.log('turns', data.turns, 'index', index);
         // Playback logic
-        
-        if (index === turns) {
+        simon.pushButton(data.compSeq[index]);
+        if (index === data.turns + 1) {
           clearInterval(timerID);
         }
-      });
+      }, 1000);
     }
   }
 
