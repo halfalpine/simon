@@ -131,11 +131,8 @@ $(".document").ready(function() {
       data.humanSeq.push(x);
       console.log("humanResponse", "compSeq", data.compSeq);
       console.log("humanResponse", "humanSeq", data.humanSeq);
-      console.log("humanResponse", "turns", data.turns);
       // If both arrays are equal...
-      if (data.humanSeq.every(function isMatching(el, i) {
-        return el === data.compSeq[i];
-      })) {
+      if (data.humanSeq.every((el, i) => {el === data.compSeq[i]})) {
         console.log('match');
       }
     },
