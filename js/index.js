@@ -16,15 +16,14 @@ $(".document").ready(function() {
     },
 
     play: function(){
-      console.log("compSeq", data.compSeq);
-      console.log("humanSeq", data.humanSeq);
       // Add function: check for winner, call victory() and return true
       simon.playSeq(data.compSeq);
       events.activateHumanEvents();
     },
 
     start: function() {
-      data.sequence = simon.sequence;
+      data.sequence = simon.makeSequence;
+      console.log(data.sequence);
       data.compSeq.push(data.sequence[0]);
       controller.play();
     },
@@ -126,10 +125,22 @@ $(".document").ready(function() {
     humanResponse: function(){
       let x = simon.getColorCode(this);
       data.humanSeq.push(x);
-      if (data.humanSeq.every(function isMatching(element, index) {
-        return element === data.compSeq[index];
+      console.log("humanResponse", "compSeq", data.compSeq);
+      console.log("humanResponse", "humanSeq", data.humanSeq);
+      console.log("humanResponse", "turns", data.turns);
+      // If both arrays are equal...
+      if (data.humanSeq.every(function isMatching(el, i) {
+        return el === data.compSeq[i];
       })) {
         console.log('match');
+        if (data.humanSeq.length === data.compSeq.length) {
+          console.log('nice!');
+          data.turns++;
+          console.log('turns', data.turns)
+          data.humanSeq = [];
+          return controller.play();
+        }
+        /*
         if (data.humanSeq.length === data.turns) {
           console.log('nice!');
           data.turns++;
@@ -140,7 +151,7 @@ $(".document").ready(function() {
         } else {
         data.humanSeq = [];
         events.deactivateHumanEvents();
-        controller.play();
+        controller.play();*/
       }
 
       // Reset humanSeq
@@ -156,6 +167,7 @@ $(".document").ready(function() {
         let sTime = data.ms[2];
       }
       let sTime = data.ms[0];
+      events.deactivateHumanEvents();
       $('.button').toggleClass('lockout');
       $.each(arr, function(index, value) {
         setTimeout(function seqTimer() {
@@ -183,9 +195,9 @@ $(".document").ready(function() {
       }
     }()),
 
-    sequence: (function() {
+    makeSequence: (function() {
       //Return an array of 20 numbers between 0 and 3
-      let arr = new Array(20)
+      let arr = new Array(20);
       for (let i = 0; i < arr.length; i++) {
         let rand = Math.floor(Math.random() * 4);
         arr[i] = rand;
