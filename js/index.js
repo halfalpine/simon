@@ -137,6 +137,13 @@ $(".document").ready(function() {
       // If both arrays are equal...
       if (data.humanSeq.every((el, i) => el === data.compSeq[i])) {
         console.log('match');
+        if (data.compSeq.every((el, i) => el === data.humanSeq[i])) {
+          console.log('nice!');
+        }
+      } else {
+        console.log('fail!');
+        data.humanSeq = [];
+        simon.turn(data.compSeq);
       }
       /*
       if (data.humanSeq.every((el, i) => {el === data.compSeq[i]})) {
