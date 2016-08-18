@@ -137,30 +137,7 @@ $(".document").ready(function() {
         return el === data.compSeq[i];
       })) {
         console.log('match');
-        /*
-        if (data.humanSeq.length === data.compSeq.length) {
-          console.log('nice!');
-          data.turns++;
-          console.log('turns', data.turns)
-          data.humanSeq = [];
-          return controller.play();
-
-        }*/
-        /*
-        if (data.humanSeq.length === data.turns) {
-          console.log('nice!');
-          data.turns++;
-          data.humanSeq = [];
-          events.deactivateHumanEvents();
-          controller.play();
-        }
-        } else {
-        data.humanSeq = [];
-        events.deactivateHumanEvents();
-        controller.play();*/
       }
-
-      // Reset humanSeq
     },
 
     makeSequence: function() {
@@ -190,9 +167,9 @@ $(".document").ready(function() {
 
     turn: function(arr) { // arr is data.compSeq
       let index = 0;
-      data.compSeq.push(data.sequence[data.turns]); // Push new number to compSeq
+      data.compSeq.push(data.sequence[data.turns]);
       // Adjust playback speed, depending on number of turns
-      events.deactivateHumanEvents(); // Turn off human input during playback
+      events.deactivateHumanEvents();
       timerID = setInterval(function(){
         index++;
         console.log('turns', data.turns, 'index', index);
