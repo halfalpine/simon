@@ -1,5 +1,7 @@
 $(".document").ready(function() {
 
+  let timerID;
+
   let data = {
     sequence: null,
     compSeq: [],
@@ -185,13 +187,18 @@ $(".document").ready(function() {
     },
 
     turn: function(arr) { // arr is data.compSeq
-      // Push new number to compSeq
-      data.compSeq.push(data.sequence[turns]);
+      let index = 0;
+      data.compSeq.push(data.sequence[turns]); // Push new number to compSeq
       // Adjust playback speed, depending on number of turns
-
-      // Turn off human input during playback
-      events.deactivateHumanEvents();
-
+      events.deactivateHumanEvents(); // Turn off human input during playback
+      timerID = setInterval(function(){
+        played++;
+        // Playback logic
+        
+        if (index === turns) {
+          clearInterval(timerID);
+        }
+      });
     }
   }
 
