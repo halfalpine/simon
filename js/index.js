@@ -26,8 +26,7 @@ $(".document").ready(function() {
 
     start: function() {
       data.sequence = simon.makeSequence();
-      console.log(data.sequence)
-      //data.compSeq.push(data.sequence[0]);
+      data.compSeq.push(data.sequence[data.turns]);
       simon.turn();
     },
 
@@ -179,7 +178,6 @@ $(".document").ready(function() {
 
     turn: function(arr) { // arr is data.compSeq
       let index = 0;
-      data.compSeq.push(data.sequence[data.turns]);
       // Adjust playback speed, depending on number of turns
       events.deactivateHumanEvents();
       timerID = setInterval(function(){
