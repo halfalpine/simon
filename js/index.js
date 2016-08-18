@@ -26,6 +26,7 @@ $(".document").ready(function() {
 
     start: function() {
       data.sequence = simon.makeSequence();
+      console.log(data.sequence)
       //data.compSeq.push(data.sequence[0]);
       simon.turn();
     },
@@ -131,12 +132,14 @@ $(".document").ready(function() {
     humanResponse: function(){
       let x = simon.getColorCode(this);
       data.humanSeq.push(x);
-      //console.log("humanResponse", "compSeq", data.compSeq);
-      //console.log("humanResponse", "humanSeq", data.humanSeq);
+      console.log("humanResponse", "compSeq", data.compSeq);
+      console.log("humanResponse", "humanSeq", data.humanSeq);
       // If both arrays are equal...
+      /*
       if (data.humanSeq.every((el, i) => {el === data.compSeq[i]})) {
         console.log('match');
       }
+      */
     },
 
     makeSequence: function() {
@@ -170,13 +173,14 @@ $(".document").ready(function() {
       // Adjust playback speed, depending on number of turns
       events.deactivateHumanEvents();
       timerID = setInterval(function(){
-        index++;
-        console.log('turns', data.turns, 'index', index);
+        // console.log('turns', data.turns, 'index', index);
         // Playback logic
         simon.pushButton(data.compSeq[index]);
-        if (index === data.turns + 1) {
+        if (index === data.turns) {
           events.activateHumanEvents();
           clearInterval(timerID);
+        } else {
+          index++;
         }
       }, 1000);
     }
