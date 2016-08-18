@@ -25,7 +25,7 @@ $(".document").ready(function() {
     start: function() {
       data.sequence = simon.makeSequence();
       //data.compSeq.push(data.sequence[0]);
-      simon.play();
+      simon.turn();
     },
 
     strict: function() {
@@ -159,23 +159,6 @@ $(".document").ready(function() {
       // Reset humanSeq
     },
 
-    playSeq: function(arr) { // arr is data.compSeq
-      // Push new number to compSeq
-      data.compSeq.push(data.sequence[turns]);
-      // Adjust playback speed, depending on number of turns
-
-      // Turn off human input during playback
-      events.deactivateHumanEvents();
-
-    },
-
-    pushButton: function(value, index, array) {
-      if (value === 0) press.green();
-      else if (value === 1) press.red();
-      else if (value === 2) press.yellow()
-      else press.blue();
-    },
-
     makeSequence: function() {
       //Return an array of 20 numbers between 0 and 3
       let arr = new Array(20);
@@ -186,10 +169,30 @@ $(".document").ready(function() {
       return arr;
     },
 
+    playback: function(){
+
+    },
+
+    pushButton: function(value, index, array) {
+      if (value === 0) press.green();
+      else if (value === 1) press.red();
+      else if (value === 2) press.yellow()
+      else press.blue();
+    },
+
     translateToColor: function(num) {
       return data.colors[num];
-    }
+    },
 
+    turn: function(arr) { // arr is data.compSeq
+      // Push new number to compSeq
+      data.compSeq.push(data.sequence[turns]);
+      // Adjust playback speed, depending on number of turns
+
+      // Turn off human input during playback
+      events.deactivateHumanEvents();
+
+    }
   }
 
   let view = {
