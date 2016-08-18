@@ -23,7 +23,7 @@ $(".document").ready(function() {
 */
 
     start: function() {
-      data.sequence = simon.makeSequence;
+      data.sequence = simon.makeSequence();
       //data.compSeq.push(data.sequence[0]);
       simon.play();
     },
@@ -176,16 +176,7 @@ $(".document").ready(function() {
       else press.blue();
     },
 
-    regGame: (function() {
-      if (data.humanMoves > 20) {
-        simon.victory;
-        return;
-      } else {
-
-      }
-    }()),
-
-    makeSequence: (function() {
+    makeSequence: function() {
       //Return an array of 20 numbers between 0 and 3
       let arr = new Array(20);
       for (let i = 0; i < arr.length; i++) {
@@ -193,7 +184,7 @@ $(".document").ready(function() {
         arr[i] = rand;
       }
       return arr;
-    }()),
+    },
 
     translateToColor: function(num) {
       return data.colors[num];
