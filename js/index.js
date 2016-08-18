@@ -16,13 +16,6 @@ $(".document").ready(function() {
     init: function() {
       view.init();
     },
-/*
-    play: function(){
-      // Add function: check for winner, call victory() and return true
-      simon.playSeq(data.compSeq);
-      events.activateHumanEvents();
-    },
-*/
 
     start: function() {
       data.sequence = simon.makeSequence();
@@ -142,11 +135,6 @@ $(".document").ready(function() {
         data.humanSeq = [];
         simon.turn(data.compSeq);
       }
-      /*
-      if (data.humanSeq.every((el, i) => {el === data.compSeq[i]})) {
-        console.log('match');
-      }
-      */
     },
 
     makeSequence: function() {
@@ -176,26 +164,32 @@ $(".document").ready(function() {
 
     turn: function(arr) { // arr is data.compSeq
       let index = 0;
-      // Adjust playback speed, depending on number of turns
-      events.deactivateHumanEvents();
-      timerID = setInterval(function(){
-        // console.log('turns', data.turns, 'index', index);
-        // Playback logic
-        simon.pushButton(data.compSeq[index]);
-        if (index === data.turns) {
-          events.activateHumanEvents();
-          clearInterval(timerID);
-        } else {
-          index++;
-        }
-      }, 1000);
+      if (data.turns === 3) {
+        simon.victory();
+      } else {
+        // Adjust playback speed, depending on number of turns
+        events.deactivateHumanEvents();
+        timerID = setInterval(function(){
+          // Playback logic
+          simon.pushButton(data.compSeq[index]);
+          if (index === data.turns) {
+            events.activateHumanEvents();
+            clearInterval(timerID);
+          } else {
+            index++;
+          }
+        }, 1000);
+      }
+    },
+
+    victory: function() {
+      console.log('you win!');
     }
   }
 
   let view = {
     init: function() {
       $('#power').change(events.togglePower);
-      //events.deactivateHumanEvents();
     }
   };
 
