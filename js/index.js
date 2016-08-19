@@ -53,17 +53,31 @@ $(".document").ready(function() {
     activateHumanEvents: function() {
       $('.button').on('mousedown', simon.humanResponse);
       $('.button').toggleClass('lockout');
-      console.log('activated');
     },
 
     deactivateHumanEvents: function() {
       $('.button').off('mousedown', simon.humanResponse);
       $('.button').toggleClass('lockout');
-      console.log('deactivated');
     },
 
     togglePower: function() {
+      /*
       this.checked ? events.activateEvents() : events.deactivateEvents();
+      */
+      console.log(this);
+      if (this.checked) {
+        console.log('true');
+        events.activateEvents();
+      } else {
+        console.log('false')
+        clearInterval(timerID);
+        data.turns = 0;
+        data.humanSeq = [];
+        data.compSeq = [];
+        events.deactivateEvents();
+        events.deactivateHumanEvents();
+        document.getElementById('count-display').innerHTML = "00";
+      }
     }
 
   };
@@ -165,7 +179,6 @@ $(".document").ready(function() {
     turn: function(arr) { // arr is data.compSeq
       let index = 0;
       setTimeout(() => simon.updateCounter(data.turns), 900);
-      //simon.updateCounter(data.turns);
       if (data.turns === 3) {
         simon.victory();
       } else {
