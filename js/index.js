@@ -135,6 +135,7 @@ $(".document").ready(function() {
           simon.turn(data.compSeq);
         }
       } else {
+        simon.wrongButton();
         if (data.strict){
           simon.powerOff();
           simon.powerOn();
@@ -196,7 +197,7 @@ $(".document").ready(function() {
     turn: function(arr) { // arr is data.compSeq
       let index = 0;
       setTimeout(() => simon.updateCounter(data.turns), 900);
-      if (data.turns === 20) {
+      if (data.turns === 3) {
         simon.victory();
       } else {
         // Adjust playback speed, depending on number of turns
@@ -224,7 +225,27 @@ $(".document").ready(function() {
     },
 
     victory: function() {
-      console.log('you win!');
+      console.log('wrong button')
+      let message = document.getElementById('modal-message');
+      let modal = document.getElementById('myModal');
+      message.innerHTML = "You win!"
+      modal.style.display = "block";
+      setTimeout(function(){
+        modal.style.display = "none";
+        simon.powerOff();
+        simon.powerOn();
+      }, 3000);
+    },
+
+    wrongButton: function() {
+      console.log('wrong button')
+      let message = document.getElementById('modal-message');
+      let modal = document.getElementById('myModal');
+      message.innerHTML = "Wrong move!"
+      modal.style.display = "block";
+      setTimeout(function(){
+        modal.style.display = "none";
+      }, 500);
     }
   }
 
