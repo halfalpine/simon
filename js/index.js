@@ -164,6 +164,8 @@ $(".document").ready(function() {
 
     turn: function(arr) { // arr is data.compSeq
       let index = 0;
+      setTimeout(() => simon.updateCounter(data.turns), 900);
+      //simon.updateCounter(data.turns);
       if (data.turns === 3) {
         simon.victory();
       } else {
@@ -180,6 +182,12 @@ $(".document").ready(function() {
           }
         }, 1000);
       }
+    },
+
+    updateCounter: function(num) {
+      let counterDiv = document.getElementById('count-display');
+      let str = (num + 1).toString();
+      counterDiv.innerHTML = str.length > 1 ?  str : "0" + str;
     },
 
     victory: function() {
