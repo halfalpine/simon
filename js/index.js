@@ -64,18 +64,7 @@ $(".document").ready(function() {
     },
 
     togglePower: function() {
-      if (this.checked) {
-        events.activateEvents();
-      } else {
-        clearInterval(timerID);
-        data.turns = 0;
-        data.humanSeq = [];
-        data.compSeq = [];
-        data.strict = false;
-        events.deactivateEvents();
-        events.deactivateHumanEvents();
-        document.getElementById('count-display').innerHTML = "00";
-      }
+      this.checked ? simon.powerOn() : simon.powerOff();
     }
 
   };
@@ -165,11 +154,19 @@ $(".document").ready(function() {
     },
 
     powerOff: function(){
-
+      clearInterval(timerID);
+      data.turns = 0;
+      data.humanSeq = [];
+      data.compSeq = [];
+      data.strict = false;
+      events.deactivateEvents();
+      events.deactivateHumanEvents();
+      document.getElementById('count-display').innerHTML = "00";
     },
 
     powerOn: function() {
-
+      console.log('on')
+      events.activateEvents();
     },
 
     pushButton: function(value, index, array) {
