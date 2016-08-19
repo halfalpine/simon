@@ -25,7 +25,10 @@ $(".document").ready(function() {
     },
 
     strict: function() {
-      $('#strict-display').toggleClass('strict-on');
+      if (data.turns === 0) {
+        data.strict = true;
+        $('#strict-display').toggleClass('strict-on');
+      }
     }
   };
 
@@ -68,6 +71,7 @@ $(".document").ready(function() {
         data.turns = 0;
         data.humanSeq = [];
         data.compSeq = [];
+        data.strict = false;
         events.deactivateEvents();
         events.deactivateHumanEvents();
         document.getElementById('count-display').innerHTML = "00";
@@ -140,8 +144,13 @@ $(".document").ready(function() {
           simon.turn(data.compSeq);
         }
       } else {
-        data.humanSeq = [];
-        simon.turn(data.compSeq);
+        if (data.strict){
+          document.getElementById('power').checked = false;
+          document.getElementById('power').checked = true;
+        } else {
+          data.humanSeq = [];
+          simon.turn(data.compSeq);
+        }
       }
     },
 
@@ -155,7 +164,11 @@ $(".document").ready(function() {
       return arr;
     },
 
-    playback: function(){
+    powerOff: function(){
+
+    },
+
+    powerOn: function() {
 
     },
 
