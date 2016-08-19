@@ -184,8 +184,14 @@ $(".document").ready(function() {
       } else {
         // Adjust playback speed, depending on number of turns
         events.deactivateHumanEvents();
+
+        document.getElementById('power').checked
+
         timerID = setInterval(function(){
           // Playback logic
+          if (!document.getElementById('power').checked) {
+            clearInterval(timerID);
+          }
           simon.pushButton(data.compSeq[index]);
           if (index === data.turns) {
             events.activateHumanEvents();
