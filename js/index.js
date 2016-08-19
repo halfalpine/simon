@@ -21,13 +21,15 @@ $(".document").ready(function() {
     start: function() {
       data.sequence = simon.makeSequence();
       data.compSeq.push(data.sequence[data.turns]);
+      // events.activateHumanEvents();
       simon.turn();
     },
 
     strict: function() {
-      if (data.turns === 0) {
-        data.strict = true;
-        $('#strict-display').toggleClass('strict-on');
+      if (data.strict  === false && data.compSeq.length === 0) {
+        simon.strictOn();
+      } else if (data.strict === true && data.compSeq.length === 0) {
+        simon.strictOff();
       }
     }
   };
@@ -134,8 +136,10 @@ $(".document").ready(function() {
         }
       } else {
         if (data.strict){
-          document.getElementById('power').checked = false;
-          document.getElementById('power').checked = true;
+          simon.powerOff();
+          simon.powerOn();
+          events.activateHumanEvents();
+          data.strict = true;
         } else {
           data.humanSeq = [];
           simon.turn(data.compSeq);
@@ -165,7 +169,6 @@ $(".document").ready(function() {
     },
 
     powerOn: function() {
-      console.log('on')
       events.activateEvents();
     },
 
@@ -176,6 +179,16 @@ $(".document").ready(function() {
       else press.blue();
     },
 
+    strictOff: function() {
+      data.strict = false;
+      $('#strict-display').removeClass('strict-on');
+    },
+
+    strictOn: function() {
+      data.strict = true;
+      $('#strict-display').addClass('strict-on');
+    },
+
     translateToColor: function(num) {
       return data.colors[num];
     },
@@ -183,22 +196,19 @@ $(".document").ready(function() {
     turn: function(arr) { // arr is data.compSeq
       let index = 0;
       setTimeout(() => simon.updateCounter(data.turns), 900);
-      if (data.turns === 3) {
+      if (data.turns === 20) {
         simon.victory();
       } else {
         // Adjust playback speed, depending on number of turns
         events.deactivateHumanEvents();
-
-        document.getElementById('power').checked
-
         timerID = setInterval(function(){
-          // Playback logic
           if (!document.getElementById('power').checked) {
             clearInterval(timerID);
           }
           simon.pushButton(data.compSeq[index]);
           if (index === data.turns) {
             events.activateHumanEvents();
+            console.log('human events activated!');
             clearInterval(timerID);
           } else {
             index++;
