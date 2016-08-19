@@ -8,6 +8,7 @@ $(".document").ready(function() {
     humanSeq: [],
     ms: [1200, 1000, 800],
     colors: [green, red, yellow, blue],
+    strict: false,
     turns: 0
   };
 
@@ -32,7 +33,7 @@ $(".document").ready(function() {
   let events = {
 
     activateEvents: function() {
-      $('#start-button').on('mousedown', controller.start);
+      $('#start-button').on('click', controller.start);
       $('#strict-button').on('click', controller.strict);
       $('#green').on('mousedown', press.green);
       $('#red').on('mousedown', press.red);
@@ -41,7 +42,6 @@ $(".document").ready(function() {
     },
 
     deactivateEvents: function() {
-      $('#test').off('click', controller.init);
       $('#start-button').off('click', controller.start);
       $('#strict-button').off('click', controller.strict);
       $('#green').off('mousedown', press.green);
@@ -61,15 +61,9 @@ $(".document").ready(function() {
     },
 
     togglePower: function() {
-      /*
-      this.checked ? events.activateEvents() : events.deactivateEvents();
-      */
-      console.log(this);
       if (this.checked) {
-        console.log('true');
         events.activateEvents();
       } else {
-        console.log('false')
         clearInterval(timerID);
         data.turns = 0;
         data.humanSeq = [];
