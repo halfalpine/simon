@@ -197,7 +197,7 @@ $(".document").ready(function() {
     turn: function(arr) { // arr is data.compSeq
       let index = 0;
       setTimeout(() => simon.updateCounter(data.turns), 900);
-      if (data.turns === 3) {
+      if (data.turns === 20) {
         simon.victory();
       } else {
         // Adjust playback speed, depending on number of turns
