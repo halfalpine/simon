@@ -76,7 +76,7 @@
 #count-display {
   color: red;
   background-color: grey;
-  border: 5px solid black;
+  border: .5vw solid black;
   border-radius: 10%;
   font-family: "VT323", monospace;
   font-size: 2.5em;
@@ -88,7 +88,7 @@
   width: 5vw;
   height: 5vw;
   background-color: red;
-  border: 3px solid black;
+  border: .5vw solid black;
   border-radius: 100%;
 }
 
@@ -99,7 +99,7 @@
   margin: 0 auto;
   height: 1.5vw;
   width: 1.5vw;
-  border: 2px solid black;
+  border: .25vw solid black;
   border-radius: 100%;
 }
 
@@ -113,7 +113,7 @@
   width: 5vw;
   height: 5vw;
   background-color: yellow;
-  border: 3px solid black;
+  border: .5vw solid black;
   border-radius: 100%;
 }
 
@@ -124,12 +124,12 @@
   font-size: 1.5em;
 }
 
-/* Power switch */
+/* Power switch */  /* Font-height at best ratio: 16px */
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px; /* FLAG */ /* 60px */
-  height: 34px; /* FLAG */ /* 34px */
+  width: 8vw; /* FLAG */ /* 60px */
+  height: 4.2vw; /* FLAG */ /* 34px */
 }
 
 .switch input {
@@ -152,10 +152,10 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px; /* FLAG */  /* 26px */
-  width: 26px; /* FLAG */ /* 26px */
-  left: 4px; /* FLAG */ /* 4px */
-  bottom: 4px; /* FLAG */ /* 4px */
+  height: 3vw; /* FLAG */  /* 26px */
+  width: 3vw; /* FLAG */ /* 26px */
+  left: .5vw; /* FLAG */ /* 4px */
+  bottom: .5vw; /* FLAG */ /* 4px */
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -170,13 +170,13 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px); /* FLAG */  /* 26px */
-  -ms-transform: translateX(26px); /* FLAG */  /* 26px */
-  transform: translateX(26px); /* FLAG */  /* 26px */
+  -webkit-transform: translateX(4vw); /* FLAG */  /* 26px */
+  -ms-transform: translateX(4vw); /* FLAG */  /* 26px */
+  transform: translateX(4vw); /* FLAG */  /* 26px */
 }
 
 .slider.round {
-  border-radius: 34px; /* FLAG */  /* 34px */
+  border-radius: 4.2vw; /* FLAG */  /* 34px */
 }
 
 .slider.round:before {
@@ -234,7 +234,7 @@ input:checked + .slider:before {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  left: -40%;
+  left: -65%;
   font-family: "Economica", sans-serif;
   font-size: 3.5vw;
 }
@@ -242,7 +242,7 @@ input:checked + .slider:before {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  right: -30%;
+  right: -50%;
   font-family: "Economica", sans-serif;
   font-size: 3.5vw;
 }
