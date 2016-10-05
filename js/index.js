@@ -68,6 +68,7 @@ $(".document").ready(function() {
 
     isIOS: function() {
       if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        alert('hey');
         var message = document.getElementById('modal-message');
         var modal = document.getElementById('myModal');
         message.innerHTML = "Simon is not supported on iOS at this time :(";
