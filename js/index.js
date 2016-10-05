@@ -101,7 +101,7 @@ $(".document").ready(function() {
       newSound.remove();
       $('#yellow').addClass('press');
       setTimeout(function() {
-        press.removeOpacity('#yellow');
+        press.removeClass('#yellow');
       }.bind($(this)), 500);
     },
 
@@ -112,7 +112,7 @@ $(".document").ready(function() {
       newSound.remove();
       $('#blue').addClass('press');
       setTimeout(function() {
-        press.removeOpacity('#blue');
+        press.removeClass('#blue');
       }.bind($(this)), 500);
     },
 
