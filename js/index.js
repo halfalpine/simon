@@ -25,7 +25,7 @@ $(".document").ready(function() {
         table.style.background = 'red';
         var message = document.getElementById('modal-message');
         var modal = document.getElementById('myModal');
-        message.innerHTML = "Simon is not supported on iOS at this time :( <br> Please try opening Simon on your desktop or laptop computer.";
+        message.innerHTML = "<p>Simon is not supported on iOS at this time :( </p><p> Please try opening Simon on your desktop or laptop computer.</p>";
         modal.style.display = "block";
       }
     },
