@@ -204,7 +204,9 @@ $(".document").ready(function() {
 
     turn: function(arr) { // arr is data.compSeq
       let index = 0;
-      setTimeout(() => simon.updateCounter(data.turns).bind(this), 900);
+      setTimeout(function() {
+        simon.updateCounter(data.turns);
+      }.bind(this), 900);
       if (data.turns === 20) {
         simon.victory();
       } else {
@@ -252,7 +254,7 @@ $(".document").ready(function() {
       modal.style.display = "block";
       setTimeout(function(){
         modal.style.display = "none";
-      }, 500);
+      }.bind(this), 500);
     }
   }
 
