@@ -21,13 +21,12 @@ $(".document").ready(function() {
 
     isIOS: function() {
       var table = document.getElementById('tabletop');
-      table.style.background = 'black';
       if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         alert('hey');
         table.style.background = 'red';
         var message = document.getElementById('modal-message');
         var modal = document.getElementById('myModal');
-        message.innerHTML = "Simon is not supported on iOS at this time :(";
+        message.innerHTML = "Simon is not supported on iOS at this time :(\n Please try opening Simon on a desktop or laptop computer.";
         modal.style.display = "block";
       }
     },
