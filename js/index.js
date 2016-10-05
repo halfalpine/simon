@@ -78,7 +78,9 @@ $(".document").ready(function() {
       newSound.play();
       newSound.remove();
       $('#green').addClass('press');
-      setTimeout(() => {press.removeOpacity('#green')}, 500);
+      setTimeout(function() {
+        press.removeOpacity('#green')
+      }.bind($(this)), 500);
     },
 
     red: function() {
