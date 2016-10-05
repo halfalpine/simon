@@ -19,6 +19,19 @@ $(".document").ready(function() {
       controller.isIOS();
     },
 
+    isIOS: function() {
+      var table = document.getElementById('tabletop');
+      table.style.background = 'black';
+      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        alert('hey');
+        table.style.background = 'red';
+        var message = document.getElementById('modal-message');
+        var modal = document.getElementById('myModal');
+        message.innerHTML = "Simon is not supported on iOS at this time :(";
+        modal.style.display = "block";
+      }
+    },
+
     start: function() {
       data.sequence = simon.makeSequence();
       data.compSeq.push(data.sequence[data.turns]);
@@ -64,19 +77,6 @@ $(".document").ready(function() {
     deactivateHumanEvents: function() {
       $('.button').off('mousedown', simon.humanResponse);
       $('.button').toggleClass('lockout');
-    },
-
-    isIOS: function() {
-      var table = document.getElementById('tabletop');
-      table.style.background = 'black';
-      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        alert('hey');
-        table.style.background = 'red';
-        var message = document.getElementById('modal-message');
-        var modal = document.getElementById('myModal');
-        message.innerHTML = "Simon is not supported on iOS at this time :(";
-        modal.style.display = "block";
-      }
     },
 
     togglePower: function() {
