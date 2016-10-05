@@ -16,6 +16,7 @@ $(".document").ready(function() {
 
     init: function() {
       view.init();
+      controller.isIOS();
     },
 
     start: function() {
@@ -63,6 +64,15 @@ $(".document").ready(function() {
     deactivateHumanEvents: function() {
       $('.button').off('mousedown', simon.humanResponse);
       $('.button').toggleClass('lockout');
+    },
+
+    isIOS: function() {
+      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        var message = document.getElementById('modal-message');
+        var modal = document.getElementById('myModal');
+        message.innerHTML = "Simon is not supported on iOS at this time :(";
+        modal.style.display = "block";
+      }
     },
 
     togglePower: function() {
