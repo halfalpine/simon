@@ -79,7 +79,7 @@ $(".document").ready(function() {
       newSound.remove();
       $('#green').addClass('press');
       setTimeout(function() {
-        press.removeOpacity('#green')
+        press.removeClass('#green');
       }.bind($(this)), 500);
     },
 
@@ -89,7 +89,9 @@ $(".document").ready(function() {
       newSound.play();
       newSound.remove();
       $('#red').addClass('press');
-      setTimeout(() => {press.removeOpacity('#red')}, 200)
+      setTimeout(function() {
+        press.removeClass('#red');
+      }.bind($(this)), 500);
     },
 
     yellow: function() {
@@ -98,7 +100,9 @@ $(".document").ready(function() {
       newSound.play();
       newSound.remove();
       $('#yellow').addClass('press');
-      setTimeout(() => {press.removeOpacity('#yellow')}, 200)
+      setTimeout(function() {
+        press.removeOpacity('#yellow');
+      }.bind($(this)), 500);
     },
 
     blue: function() {
@@ -107,7 +111,9 @@ $(".document").ready(function() {
       newSound.play();
       newSound.remove();
       $('#blue').addClass('press');
-      setTimeout(() => {press.removeOpacity('#blue')}, 200)
+      setTimeout(function() {
+        press.removeOpacity('#blue');
+      }.bind($(this)), 500);
     },
 
     removeOpacity: function(x) {
