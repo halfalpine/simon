@@ -8,8 +8,7 @@
 
 #container {
   position: relative;
-  width: 100%;
-}
+  width: 100%; }
 
 #filler {
   padding-top: 100%; }
@@ -68,7 +67,7 @@
 #count-display {
   color: red;
   background-color: grey;
-  border: .5vw solid black;
+  border: 5px solid black;
   border-radius: 10%;
   font-family: "VT323", monospace;
   font-size: 2.5em; }
@@ -76,12 +75,12 @@
 #start-button {
   display: block;
   margin: 0 auto;
+  padding: 0;
   width: 5vw;
   height: 5vw;
   background-color: orange;
   border: 3px solid black;
   border-radius: 100%; }
-
 
 #strict-display {
   display: block;
@@ -90,9 +89,8 @@
   margin: 0 auto;
   height: 1.5vw;
   width: 1.5vw;
-  border: .25vw solid black;
-  border-radius: 100%;
-}
+  border: 2px solid black;
+  border-radius: 100%; }
 
 .strict-on {
   background-color: red; }
@@ -103,9 +101,8 @@
   width: 5vw;
   height: 5vw;
   background-color: yellow;
-  border: .5vw solid black;
-  border-radius: 100%;
-}
+  border: 3px solid black;
+  border-radius: 100%; }
 
 #midrow-container label {
   display: inline-block;
@@ -113,13 +110,12 @@
   font-family: "Economica", sans-serif;
   font-size: 1.5em; }
 
-/* Power switch */  /* Font-height at best ratio: 16px */
+/* Power switch */
 .switch {
   position: relative;
   display: inline-block;
-  width: 8vw; /* FLAG */ /* 60px */
-  height: 4.2vw; /* FLAG */ /* 34px */
-}
+  width: 60px;
+  height: 34px; }
 
 .switch input {
   display: none; }
@@ -139,10 +135,10 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 3vw; /* FLAG */  /* 26px */
-  width: 3vw; /* FLAG */ /* 26px */
-  left: .5vw; /* FLAG */ /* 4px */
-  bottom: .5vw; /* FLAG */ /* 4px */
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s; }
@@ -154,14 +150,12 @@ input:focus + .slider {
   box-shadow: 0 0 1px #2196F3; }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(4vw); /* FLAG */  /* 26px */
-  -ms-transform: translateX(4vw); /* FLAG */  /* 26px */
-  transform: translateX(4vw); /* FLAG */  /* 26px */
-}
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px); }
 
 .slider.round {
-  border-radius: 4.2vw; /* FLAG */  /* 34px */
-}
+  border-radius: 34px; }
 
 .slider.round:before {
   border-radius: 50%; }
@@ -204,7 +198,6 @@ input:checked + .slider:before {
     margin: 0; }
 
 #bottomrow-container {
-
   position: relative; }
   #bottomrow-container #off {
     position: absolute;
