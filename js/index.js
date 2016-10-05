@@ -78,7 +78,9 @@ $(".document").ready(function() {
       newSound.play();
       newSound.remove();
       $('#green').addClass('press');
-      setTimeout(() => {press.removeOpacity('#green')}, 200);
+      setTimeout(function() {
+        press.removeOpacity('#green')
+      }.bind($(this)), 500);
     },
 
     red: function() {
@@ -238,10 +240,9 @@ $(".document").ready(function() {
     },
 
     wrongButton: function() {
-      console.log('wrong button')
       let message = document.getElementById('modal-message');
       let modal = document.getElementById('myModal');
-      message.innerHTML = "Wrong move!"
+      message.innerHTML = "Wrong move!";
       modal.style.display = "block";
       setTimeout(function(){
         modal.style.display = "none";
