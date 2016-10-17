@@ -1,3 +1,1 @@
-A Pen created at CodePen.io. You can find this one at http://codepen.io/halfalpine/pen/KrGaJv.
-
- 
+I created this project as part of my work for Free Code Camp. All the code in the project was written by Dirk Peters in 2016.

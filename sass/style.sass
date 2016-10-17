@@ -7,10 +7,15 @@
   font-size: 2em
   text-align: center
 
+body
+  background-image: linear-gradient(#0000cc, #000033)
+  background-repeat: no-repeat
+
+
 #container
-  // display: inline-block
   position: relative
   width: 100%
+
 
 #filler
   padding-top: 100%
@@ -21,8 +26,6 @@
   bottom: 0
   left: 0
   right: 0
-  // background-image: url('http://wallpapercave.com/wp/CyT83yY.jpg')
-  background-color: grey
 
 #console
   border-radius: 100%
@@ -71,7 +74,7 @@
 #count-display
   color: red
   background-color: grey
-  border: 5px solid black
+  border: 2px solid black
   border-radius: 10%
   font-family: 'VT323', monospace
   font-size: 2.5em
@@ -83,7 +86,7 @@
   width: 5vw
   height: 5vw
   background-color: red
-  border: 3px solid black
+  border: px solid black
   border-radius: 100%
 
 #strict-display
@@ -107,7 +110,7 @@
   width: 5vw
   height: 5vw
   background-color: yellow
-  border: 3px solid black
+  border: 2px solid black
   border-radius: 100%
 
 #midrow-container label
@@ -120,8 +123,8 @@
 .switch
   position: relative
   display: inline-block
-  width: 60px
-  height: 34px
+  width: 10vw
+  height: 6vw
   // border: 1px solid black
 
 .switch input
@@ -134,19 +137,20 @@
   left: 0
   right: 0
   bottom: 0
-  background-color: #ccc
-  border: 1px solid black
+  background-color: darkgrey
+  border: px solid black
   -webkit-transition: .4s
   transition: .4s
 
 .slider:before
   position: absolute
   content: ""
-  height: 26px
-  width: 26px
-  left: 4px
-  bottom: 4px
+  height: 4.5vw
+  width: 4.5vw
+  left: .5vw
+  bottom: .5vw
   background-color: white
+  border: 1px solid black
   -webkit-transition: .4s
   transition: .4s
 
@@ -157,12 +161,12 @@ input:focus + .slider
   box-shadow: 0 0 1px #2196F3
 
 input:checked + .slider:before
-  -webkit-transform: translateX(26px)
-  -ms-transform: translateX(26px)
-  transform: translateX(26px)
+  -webkit-transform: translateX(4.5vw)
+  -ms-transform: translateX(4.5vw)
+  transform: translateX(4.5vw)
 
 .slider.round
-  border-radius: 34px
+  border-radius: 6vw
 
 .slider.round:before
   border-radius: 50%
@@ -183,6 +187,7 @@ input:checked + .slider:before
       position: absolute
       bottom: -0.25em
       font-size: 3vw
+
 #midrow-container
   width: 100%
   height: 25%
@@ -206,16 +211,17 @@ input:checked + .slider:before
   position: relative
   #off
     position: absolute
-    top: 50%
+    top: 40%
     transform: translate(0, -50%)
-    left: -40%
+    left: -5vw
     font-family: 'Economica', sans-serif
     font-size: 3.5vw
   #on
     position: absolute
     top: 50%
     transform: translate(0, -50%)
-    right: -30%
+    right: -5vw
+    margin-left: 4%
     font-family: 'Economica', sans-serif
     font-size: 3.5vw
 /* Gameplay buttons */
@@ -265,3 +271,58 @@ input:checked + .slider:before
   padding: 20px
   border: 1px solid #888
   width: 80%
+
+@media screen and (min-device-width: 1200px) and  (-webkit-min-device-pixel-ratio: 1)
+
+
+  #container
+    margin: auto
+    max-width: 600px
+
+@media screen and (min-width: 600px)
+
+
+  #count-display
+    border: 3px solid black
+    font-size: 30px
+
+  #toprow-container
+    #logo
+      font-size: 48px
+
+  #start-button
+    width: 30px
+    height: 30px
+    border: 3px solid black
+
+  #strict-display
+    top: -6px
+    height: 9px
+    width: 9px
+
+  .strict-on
+    background-color: red
+
+  #strict-button
+    width: 30px
+    height: 30px
+
+  #midrow-container label
+    font-size: 12px
+
+  /* Power switch */
+  .switch
+    width: 60px
+    height: 34px
+    // border: 1px solid black
+
+  #slider
+
+
+  .slider:before
+    height: 26px
+    width: 26px
+    left: 4px
+    bottom: 4px
+
+p

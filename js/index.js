@@ -16,6 +16,18 @@ $(".document").ready(function() {
 
     init: function() {
       view.init();
+      controller.isIOS();
+    },
+
+    isIOS: function() {
+      var table = document.getElementById('tabletop');
+      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        table.style.background = 'red';
+        var message = document.getElementById('modal-message');
+        var modal = document.getElementById('myModal');
+        message.innerHTML = "<p>Simon is not supported on iOS at this time :( </p><p> Please try opening Simon on your desktop or laptop computer.</p>";
+        modal.style.display = "block";
+      }
     },
 
     start: function() {
@@ -79,7 +91,7 @@ $(".document").ready(function() {
       newSound.remove();
       $('#green').addClass('press');
       setTimeout(function() {
-        press.removeOpacity('#green')
+        press.removeOpacity('#green');
       }.bind($(this)), 500);
     },
 
@@ -89,7 +101,9 @@ $(".document").ready(function() {
       newSound.play();
       newSound.remove();
       $('#red').addClass('press');
-      setTimeout(() => {press.removeOpacity('#red')}, 200)
+      setTimeout(function() {
+        press.removeOpacity('#red');
+      }.bind($(this)), 500);
     },
 
     yellow: function() {
@@ -98,7 +112,9 @@ $(".document").ready(function() {
       newSound.play();
       newSound.remove();
       $('#yellow').addClass('press');
-      setTimeout(() => {press.removeOpacity('#yellow')}, 200)
+      setTimeout(function() {
+        press.removeOpacity('#yellow');
+      }.bind($(this)), 500);
     },
 
     blue: function() {
@@ -107,11 +123,13 @@ $(".document").ready(function() {
       newSound.play();
       newSound.remove();
       $('#blue').addClass('press');
-      setTimeout(() => {press.removeOpacity('#blue')}, 200)
+      setTimeout(function() {
+        press.removeOpacity('#blue');
+      }.bind($(this)), 500);
     },
 
     removeOpacity: function(x) {
-      $(x).removeClass('press').bind(press.green);
+      $(x).removeClass('press').bind($(this));
     },
   };
 
@@ -198,7 +216,9 @@ $(".document").ready(function() {
 
     turn: function(arr) { // arr is data.compSeq
       let index = 0;
-      setTimeout(() => simon.updateCounter(data.turns), 900);
+      setTimeout(function() {
+        simon.updateCounter(data.turns);
+      }.bind(this), 900);
       if (data.turns === 20) {
         simon.victory();
       } else {
@@ -246,7 +266,7 @@ $(".document").ready(function() {
       modal.style.display = "block";
       setTimeout(function(){
         modal.style.display = "none";
-      }, 500);
+      }.bind(this), 500);
     }
   }
 
