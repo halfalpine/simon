@@ -76,7 +76,7 @@ $(".document").ready(function() {
       let greenSound = document.getElementById('green-sound');
       let newSound = greenSound.cloneNode();
       newSound.play();
-      newSound.remove();
+      // newSound.remove();
       $('#green').addClass('press');
       setTimeout(function() {
         press.removeOpacity('#green');
@@ -87,7 +87,7 @@ $(".document").ready(function() {
       let redSound = document.getElementById('red-sound');
       let newSound = redSound.cloneNode();
       newSound.play();
-      newSound.remove();
+      // newSound.remove();
       $('#red').addClass('press');
       setTimeout(() => {press.removeOpacity('#red')}, 200)
     },
