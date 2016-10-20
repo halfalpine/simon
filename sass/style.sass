@@ -10,7 +10,7 @@
 body
   background-image: linear-gradient(#0000cc, #000033)
   background-repeat: no-repeat
-
+  zoom: 1.05
 
 #container
   position: relative
@@ -271,60 +271,3 @@ input:checked + .slider:before
   padding: 20px
   border: 1px solid #888
   width: 80%
-
-@media screen and (min-device-width: 1200px) and  (-webkit-min-device-pixel-ratio: 1)
-
-
-  #container
-    margin: auto
-    max-width: 768
-
-@media screen and (min-width: 600px)
-
-
-  #count-display
-    border: 3px solid black
-    font-size: 30px
-
-  #toprow-container
-    #logo
-      font-size: 48px
-
-  #start-button
-    width: 30px
-    height: 30px
-    border: 3px solid black
-
-  #strict-display
-    top: -6px
-    height: 9px
-    width: 9px
-
-  .strict-on
-    background-color: red
-
-  #strict-button
-    width: 30px
-    height: 30px
-
-  #midrow-container label
-    font-size: 12px
-
-  /* Power switch */
-  .switch
-    width: 60px
-    height: 34px
-    // border: 1px solid black
-
-  #slider
-
-
-  .slider:before
-    height: 26px
-    width: 26px
-    left: 4px
-    bottom: 4px
-
-@media screen
-  body
-    transform: scale(1.5)
